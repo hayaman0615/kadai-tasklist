@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
+  before_action :require_user_logged_in
   before_action :correct_user, only: [:show, :edit, :destroy]
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :destroy]
+  
   
 
   def index
@@ -52,7 +53,6 @@ class TasksController < ApplicationController
 
   private
 
-  
 
   def task_params
     params.require(:task).permit(:content, :status)
