@@ -5,11 +5,11 @@ class TasksController < ApplicationController
   
 
   def index
-    
     @tasks = current_user.tasks.order(id: :desc).page(params[:page])
   end
 
-  
+  def show
+  end
 
   def new
     @task = Task.new
